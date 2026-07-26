@@ -564,7 +564,125 @@
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       footer { flex-direction: column; gap: 1rem; text-align: center; }
     }
+  
+    /* ==========================================================================
+       MOBILE & RESPONSIVE DESIGN ENHANCEMENTS
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      section { padding: 5rem 3rem !important; }
+      nav { padding: 1.2rem 2.5rem !important; }
+      .about-grid { gap: 3rem !important; }
+    }
+
+    @media (max-width: 868px) {
+      nav {
+        padding: 1rem 1.5rem !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 1rem !important;
+      }
+      .nav-links {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 1.2rem !important;
+        width: 100% !important;
+      }
+      #hero {
+        min-height: auto !important;
+        padding-top: 7rem !important;
+        padding-bottom: 4rem !important;
+      }
+      .hero-photo {
+        position: relative !important;
+        right: auto !important;
+        top: auto !important;
+        transform: none !important;
+        margin: 3rem auto 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+      }
+      .about-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 3.5rem 1.25rem !important; }
+      
+      .hero-tag {
+        font-size: 0.7rem !important;
+        letter-spacing: 0.2em !important;
+      }
+      .hero-name {
+        font-size: clamp(2.1rem, 8vw, 3.5rem) !important;
+        line-height: 1.1 !important;
+      }
+      .hero-title {
+        font-size: 0.95rem !important;
+        margin-bottom: 1.5rem !important;
+      }
+      .hero-cta {
+        flex-direction: column !important;
+        width: 100% !important;
+      }
+      .hero-cta .btn {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+      }
+
+      .section-title {
+        font-size: 1.75rem !important;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)) !important;
+        gap: 0.75rem !important;
+      }
+      .skill-card {
+        padding: 1rem 0.6rem !important;
+      }
+      .skill-name {
+        font-size: 0.75rem !important;
+      }
+
+      .project-card {
+        padding: 1.5rem 1.2rem !important;
+      }
+      .exp-card, .cert-card {
+        padding: 1.5rem 1.2rem !important;
+      }
+      .exp-grid, .cert-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      section { padding: 3rem 1rem !important; }
+      nav { padding: 0.8rem 1rem !important; }
+      
+      .hero-photo > div:first-child {
+        width: 180px !important;
+        height: 215px !important;
+      }
+
+      .about-contact .contact-item {
+        font-size: 0.8rem !important;
+        word-break: break-all !important;
+      }
+
+      .terminal {
+        border-radius: 6px !important;
+      }
+      .terminal-body {
+        padding: 1rem 0.8rem !important;
+        font-size: 0.75rem !important;
+      }
+    }
   </style>
+
 </head>
 <body>
 
