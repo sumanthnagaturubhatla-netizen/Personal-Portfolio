@@ -555,133 +555,279 @@
       transform: translateY(0);
     }
 
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      #hero { padding: 0 1.5rem; }
-      .hero-stats { display: none; }
-      section { padding: 4rem 1.5rem; }
-      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-      footer { flex-direction: column; gap: 1rem; text-align: center; }
-    }
+    
   
+    
     /* ==========================================================================
-       MOBILE & RESPONSIVE DESIGN ENHANCEMENTS
+       MOBILE & RESPONSIVE DESIGN - COMPREHENSIVE OVERHAUL
        ========================================================================== */
+
+    /* --- Touch devices: restore normal cursor --- */
+    @media (hover: none) and (pointer: coarse) {
+      body { cursor: auto !important; }
+      .cursor, .cursor-ring { display: none !important; }
+      .btn, a, .skill-card, .project-card, .exp-card, .cert-card { cursor: pointer !important; }
+    }
+
+    /* --- Hamburger Menu Button (hidden on desktop, shown on mobile) --- */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 110;
+      padding: 4px;
+      border: none;
+      background: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--accent);
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* --- Tablet: 1024px --- */
     @media (max-width: 1024px) {
       section { padding: 5rem 3rem !important; }
       nav { padding: 1.2rem 2.5rem !important; }
       .about-grid { gap: 3rem !important; }
+      .hero-photo {
+        right: 2rem !important;
+      }
     }
 
+    /* --- Small Tablet / Large Phone: 868px --- */
     @media (max-width: 868px) {
+      .hamburger { display: flex !important; }
+      
       nav {
         padding: 1rem 1.5rem !important;
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 1rem !important;
-      }
-      .nav-links {
-        display: flex !important;
         flex-wrap: wrap !important;
-        gap: 1.2rem !important;
+      }
+      nav > div:first-child {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
         width: 100% !important;
       }
+      .nav-links {
+        display: none !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 0 !important;
+        padding: 0.5rem 0 0 !important;
+        border-top: 1px solid var(--border) !important;
+        margin-top: 0.8rem !important;
+      }
+      .nav-links.open {
+        display: flex !important;
+      }
+      .nav-links li {
+        width: 100% !important;
+      }
+      .nav-links a {
+        display: block !important;
+        padding: 0.75rem 0 !important;
+        font-size: 0.85rem !important;
+        border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+      }
+      
       #hero {
         min-height: auto !important;
         padding-top: 7rem !important;
-        padding-bottom: 4rem !important;
+        padding-bottom: 3rem !important;
+        flex-direction: column !important;
       }
       .hero-photo {
         position: relative !important;
         right: auto !important;
         top: auto !important;
         transform: none !important;
-        margin: 3rem auto 0 !important;
+        margin: 2.5rem auto 0 !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
       }
+      .hero-stats {
+        position: relative !important;
+        right: auto !important;
+        bottom: auto !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        gap: 2.5rem !important;
+        margin-top: 2rem !important;
+      }
+      .stat { text-align: center !important; }
       .about-grid {
         grid-template-columns: 1fr !important;
         gap: 2.5rem !important;
       }
     }
 
+    /* --- Phone: 768px --- */
     @media (max-width: 768px) {
       section { padding: 3.5rem 1.25rem !important; }
       
       .hero-tag {
-        font-size: 0.7rem !important;
-        letter-spacing: 0.2em !important;
+        font-size: 0.65rem !important;
+        letter-spacing: 0.15em !important;
+        text-align: center !important;
+      }
+      .hero-content {
+        text-align: center !important;
       }
       .hero-name {
-        font-size: clamp(2.1rem, 8vw, 3.5rem) !important;
+        font-size: clamp(2rem, 9vw, 3.2rem) !important;
         line-height: 1.1 !important;
       }
       .hero-title {
-        font-size: 0.95rem !important;
+        font-size: 0.9rem !important;
         margin-bottom: 1.5rem !important;
       }
       .hero-cta {
         flex-direction: column !important;
         width: 100% !important;
+        gap: 0.7rem !important;
       }
       .hero-cta .btn {
         width: 100% !important;
         text-align: center !important;
         justify-content: center !important;
+        padding: 0.8rem 1.2rem !important;
+        font-size: 0.75rem !important;
       }
 
+      .section-label {
+        font-size: 0.65rem !important;
+      }
       .section-title {
-        font-size: 1.75rem !important;
+        font-size: 1.6rem !important;
+        margin-bottom: 1.5rem !important;
+      }
+      .section-line {
+        margin-bottom: 2rem !important;
+      }
+
+      .about-text p {
+        font-size: 0.95rem !important;
+        line-height: 1.75 !important;
       }
 
       .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)) !important;
-        gap: 0.75rem !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 0.6rem !important;
       }
       .skill-card {
-        padding: 1rem 0.6rem !important;
+        padding: 1rem 0.5rem !important;
+      }
+      .skill-icon img {
+        width: 36px !important;
+        height: 36px !important;
       }
       .skill-name {
-        font-size: 0.75rem !important;
+        font-size: 0.68rem !important;
       }
 
       .project-card {
         padding: 1.5rem 1.2rem !important;
       }
+      .project-header {
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+      }
+      .project-name {
+        font-size: 1.1rem !important;
+      }
+      .project-desc {
+        font-size: 0.85rem !important;
+        line-height: 1.7 !important;
+      }
+      .tech-tag {
+        font-size: 0.6rem !important;
+        padding: 0.2rem 0.5rem !important;
+      }
+
       .exp-card, .cert-card {
-        padding: 1.5rem 1.2rem !important;
+        padding: 1.5rem 1rem !important;
       }
       .exp-grid, .cert-grid {
         grid-template-columns: 1fr !important;
       }
+      .exp-role {
+        font-size: 1.05rem !important;
+      }
+      .exp-desc, .cert-desc {
+        font-size: 0.82rem !important;
+      }
+
+      footer {
+        padding: 2rem 1.2rem !important;
+        flex-direction: column !important;
+        gap: 0.8rem !important;
+        text-align: center !important;
+      }
     }
 
+    /* --- Small Phone: 480px --- */
     @media (max-width: 480px) {
-      section { padding: 3rem 1rem !important; }
-      nav { padding: 0.8rem 1rem !important; }
+      section { padding: 2.5rem 0.8rem !important; }
+      nav { padding: 0.75rem 0.8rem !important; }
       
+      .hero-name {
+        font-size: clamp(1.7rem, 10vw, 2.5rem) !important;
+      }
       .hero-photo > div:first-child {
-        width: 180px !important;
-        height: 215px !important;
+        width: 160px !important;
+        height: 195px !important;
+      }
+      .hero-stats {
+        gap: 1.5rem !important;
+      }
+      .stat-num {
+        font-size: 1.5rem !important;
+      }
+      .stat-label {
+        font-size: 0.6rem !important;
       }
 
       .about-contact .contact-item {
-        font-size: 0.8rem !important;
-        word-break: break-all !important;
+        font-size: 0.72rem !important;
+        word-break: break-word !important;
+        overflow-wrap: anywhere !important;
+        gap: 0.4rem !important;
+      }
+      .about-contact .contact-item a {
+        font-size: 0.72rem !important;
       }
 
-      .terminal {
-        border-radius: 6px !important;
-      }
       .terminal-body {
-        padding: 1rem 0.8rem !important;
-        font-size: 0.75rem !important;
+        padding: 0.8rem 0.6rem !important;
+        font-size: 0.7rem !important;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 0.5rem !important;
+      }
+      .skill-icon img {
+        width: 32px !important;
+        height: 32px !important;
       }
     }
   </style>
+
 
 </head>
 <body>
@@ -697,6 +843,9 @@
         <img src="static/images/profile.png" alt="Naga Sumanth" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
       </div>
       <div class="nav-logo">NST.DEV</div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
     <ul class="nav-links">
       <li><a href="#about">// about</a></li>
@@ -1184,6 +1333,27 @@
     document.querySelectorAll('.skill-card').forEach((card, i) => {
       card.style.transitionDelay = `${i * 0.05}s`;
     });
+  </script>
+
+  <script>
+    // Mobile hamburger menu toggle
+    (function() {
+      var hamburger = document.getElementById('hamburger');
+      var navLinks = document.querySelector('.nav-links');
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function() {
+          hamburger.classList.toggle('active');
+          navLinks.classList.toggle('open');
+        });
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('open');
+          });
+        });
+      }
+    })();
   </script>
 </body>
 </html>
